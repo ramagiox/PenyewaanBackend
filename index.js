@@ -11,6 +11,7 @@ app.use('/', function (req, res, next) {
     next();
 })
 
+
 let datasewaRoute = require('./datasewa/datasewaRoute.js');
 app.use('/api',datasewaRoute);
 
