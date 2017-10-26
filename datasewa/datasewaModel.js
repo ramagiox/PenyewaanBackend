@@ -7,7 +7,8 @@ let datasewa = mong.Schema({
 	KdBarang : String,
 	StatusDataSewa : String,
 	TglMulai : Date,
-	TglSelesai : Date
+	TglSelesai : Date,
+	JumlahBarang : Number
 });
 
 let DataSewa = module.exports = mong.model("DataSewa", datasewa, "DataSewa");
