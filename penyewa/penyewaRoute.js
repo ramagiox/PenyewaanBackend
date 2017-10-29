@@ -24,8 +24,8 @@ route.get('/penyewa/:_id', function (req, res) {
     });
 });
 
-route.get('/penyewa/search/:user', function (req, res) {
-    let user = req.params.user;
+route.get('/penyewa/search/:username', function (req, res) {
+    let user = req.params.username;
     penyewaController.getPenyewaByUser(user,function (err, respon) {
         if (err) {
             throw err;
