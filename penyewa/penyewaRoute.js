@@ -11,6 +11,9 @@ route.get('/penyewa', function (req, res) {
     });
 });
 
+
+
+
 route.get('/penyewa/:_id', function (req, res) {
     let id = req.params._id;
     penyewaController.getPenyewaById(id,function (err, respon) {
@@ -20,6 +23,17 @@ route.get('/penyewa/:_id', function (req, res) {
         res.json(respon);
     });
 });
+
+route.get('/penyewa/:user', function (req, res) {
+    let user = req.params.user;
+    penyewaController.getPenyewaByUser(user,function (err, respon) {
+        if (err) {
+            throw err;
+        }
+        res.json(respon);
+    });
+});
+
 
 route.post('/penyewa', function (req, res) {
     let penyewa = req.body;
