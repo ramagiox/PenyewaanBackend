@@ -30,7 +30,7 @@ route.get('/penyewa/search/:username', function (req, res) {
         if (err) {
             throw err;
         }
-        res.json(respon);
+        res.json(user);
     });
 });
 
