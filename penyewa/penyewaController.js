@@ -5,7 +5,7 @@ module.exports.getPenyewa = function(callback,limit){
 }
 
 module.exports.getPenyewaByUser = function(user,callback,limit){
-    Penyewa.find({"UserName" : user},callback).limit(limit);
+    Penyewa.find({"UserName" : "rama"},callback).limit(limit);
 }
 
 module.exports.getPenyewaById = function(id,callback,limit){
