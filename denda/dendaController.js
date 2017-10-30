@@ -8,6 +8,10 @@ module.exports.getDendaById = function(id,callback,limit){
     denda.findById(id,callback).limit(limit);
 }
 
+module.exports.getDendaByKdDataSewa = function(id,callback,limit){
+    denda.find(id,callback).limit(limit);
+}
+
 module.exports.createDenda = function(denda,callback){
     denda.create(denda,callback);
 }
