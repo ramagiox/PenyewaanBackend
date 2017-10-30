@@ -13,6 +13,9 @@ module.exports.getDataSewaByKdPenyewa = function(id,callback,limit){
 module.exports.getDataSewaByKdPenyewa2 = function(id,callback,limit){
     DataSewa.find({KdPenyewa : id, StatusDataSewa : "booked" },callback).limit(limit);
 }
+module.exports.getDataSewaByKdPenyewa3 = function(id,callback,limit){
+    DataSewa.find({KdPenyewa : id, StatusDataSewa : "late" },callback).limit(limit);
+}
 
 module.exports.createDataSewa = function(datasewa,callback){
     DataSewa.create(datasewa,callback);
