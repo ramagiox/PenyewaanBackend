@@ -7,6 +7,9 @@ module.exports.getDataSewa = function(callback,limit){
 module.exports.getDataSewaById = function(id,callback,limit){
     DataSewa.findById(id,callback).limit(limit);
 }
+module.exports.getDataSewaByKdPenyewa = function(id,callback,limit){
+    DataSewa.find({KdPenyewa : id},callback).limit(limit);
+}
 
 module.exports.createDataSewa = function(datasewa,callback){
     DataSewa.create(datasewa,callback);
