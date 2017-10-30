@@ -20,6 +20,15 @@ route.get('/datasewa/:_id', function (req, res) {
     });
 });
 
+route.get('/datasewa/search/:_id', function (req, res) {
+    datasewaController.getDataSewaByKdPenyewa(req.params._id, function (err, respon) {
+        if (err) {
+            throw err;
+        }
+        res.json(respon);
+    });
+});
+
 route.post('/datasewa', function (req, res) {
     let datasewa = req.body;
     datasewaController.createDataSewa(datasewa, function (err, respon) {
