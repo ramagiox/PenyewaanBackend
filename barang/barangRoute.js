@@ -2,6 +2,16 @@ let ex = require('express');
 let route = ex.Router();
 let barangController = require('./barangController.js')
 
+route.get('/kdbarang/:kdbarang',function(req,res){
+	let kdbarang = req.params.kdbarang;
+    barangController.getBarangByKdBarang(kdbarang,function(err,respon){
+        if(err){
+            throw err;
+        }
+        res.json(respon);
+    });
+});
+
 route.get('/barang', function (req, res) {
     barangController.getBarang(function (err, respon) {
         if (err) {
