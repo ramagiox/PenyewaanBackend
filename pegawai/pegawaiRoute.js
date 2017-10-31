@@ -21,6 +21,16 @@ route.get('/pegawai/:_id', function (req, res) {
     });
 });
 
+route.get('/username/:username',function(req,res){
+	let username = req.params.username;
+    pegawaiController.getPegawaiByUserNamePegawai(username,function(err,respon){
+        if(err){
+            throw err;
+        }
+        res.json(respon);
+    });
+});
+
 route.post('/pegawai', function (req, res) {
     let pegawai = req.body;
     pegawaiController.createPegawai(pegawai, function (err, respon) {
