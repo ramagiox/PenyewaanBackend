@@ -4,6 +4,25 @@ module.exports.getDataSewa = function(callback,limit){
     DataSewa.find(callback).limit(limit);
 }
 
+module.exports.getDataSewaFull = function(callback){
+    DataSewa.aggregate([
+    {"$lookup":{
+         from:"Pegawai",
+         localField:"KdPegawai",
+         foreignField:"KdPegawai",
+         as:"PegawaiInfo"
+     }},
+        {"$unwind":"$PegawaiInfo"},
+     {"$lookup":{
+         from:"Penyewa",
+         localField:"KdPenyewa",
+         foreignField:"KdPenyewa",
+         as:"PenyewaInfo"
+     }}, 
+        {"$unwind":"$PenyewaInfo"}
+     ],callback)
+}
+
 module.exports.getDataSewaById = function(id,callback,limit){
     DataSewa.findById(id,callback).limit(limit);
 }
