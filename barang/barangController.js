@@ -17,10 +17,6 @@ module.exports.getBarangByKdBarang = function(kdbarang,callback){
     Barang.find({KdBarang:kdbarang},callback);
 }
 
-module.exports.getBarang = function(callback,limit){
-    Barang.find(callback).limit(limit);
-}
-
 module.exports.getBarangById = function(id,callback,limit){
     Barang.findById(id,callback).limit(limit);
 }
