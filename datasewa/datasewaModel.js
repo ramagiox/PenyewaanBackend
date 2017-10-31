@@ -2,8 +2,8 @@ let mong = require('mongoose');
 
 let datasewa = mong.Schema({
 	KdDataSewa : String,
-	KdPegawai : String,
-	KdPenyewa : String,
+	UserNamePegawai : String,
+	UserNamePenyewa : String,
 	KdBarang : String,
 	StatusDataSewa : String,
 	TglMulai : Date,
