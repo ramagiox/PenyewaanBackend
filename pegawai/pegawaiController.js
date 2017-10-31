@@ -8,6 +8,10 @@ module.exports.getPegawaiById = function(id,callback,limit){
     Pegawai.findById(id,callback).limit(limit);
 }
 
+module.exports.getPegawaiByUserNamePegawai = function(username,callback){
+    Pegawai.find({UserNamePegawai:username},callback);
+}
+
 module.exports.createPegawai = function(pegawai,callback){
     Pegawai.create(pegawai,callback);
 }
