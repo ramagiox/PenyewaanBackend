@@ -4,8 +4,8 @@ module.exports.getPegawai = function(callback,limit){
     Pegawai.find(callback).limit(limit);
 }
 
-module.exports.getPegawaiByKdPegawai = function(kdpegawai,callback){
-    Pegawai.find({KdPegawai:kdpegawai},callback);
+module.exports.getPegawaiByUserName = function(kdpegawai,callback){
+    Pegawai.find({UserName:kdpegawai},callback);
 }
 
 module.exports.getPegawaiById = function(id,callback,limit){
