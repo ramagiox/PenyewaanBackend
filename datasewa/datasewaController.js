@@ -8,15 +8,15 @@ module.exports.getDataSewaFull = function(callback){
     DataSewa.aggregate([
     {"$lookup":{
          from:"Pegawai",
-         localField:"KdPegawai",
-         foreignField:"KdPegawai",
+         localField:"UserNamePegawai",
+         foreignField:"UserNamePegawai",
          as:"PegawaiInfo"
      }},
         {"$unwind":"$PegawaiInfo"},
      {"$lookup":{
          from:"Penyewa",
-         localField:"KdPenyewa",
-         foreignField:"KdPenyewa",
+         localField:"UserNamePenyewa",
+         foreignField:"UserNamePenyewa",
          as:"PenyewaInfo"
      }}, 
         {"$unwind":"$PenyewaInfo"}
