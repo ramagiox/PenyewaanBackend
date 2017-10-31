@@ -11,9 +11,9 @@ route.get('/pegawai', function (req, res) {
     });
 });
 
-route.get('/kdpegawai/:kdpegawai',function(req,res){
-	let kdpegawai = req.params.kdpegawai;
-    pegawaiController.getPegawaiByUserName(kdpegawai,function(err,respon){
+route.get('/username/:username',function(req,res){
+	let username = req.params.username;
+    pegawaiController.getPegawaiByUserNamePegawai(username,function(err,respon){
         if(err){
             throw err;
         }
