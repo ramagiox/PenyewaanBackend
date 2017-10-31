@@ -2,6 +2,15 @@ let ex = require('express');
 let route = ex.Router();
 let datasewaController = require('./datasewaController.js')
 
+route.get('/datasewafull', function (req, res) {
+    datasewaController.getDataSewaFull(function (err, respon) {
+        if (err) {
+            throw err;
+        }
+        res.json(respon);
+    });
+});
+
 route.get('/datasewa', function (req, res) {
     datasewaController.getDataSewa(function (err, respon) {
         if (err) {
