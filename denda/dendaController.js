@@ -1,25 +1,25 @@
-denda = require('./dendaModel.js');
+Denda = require('./dendaModel.js');
 
 module.exports.getDenda = function(callback,limit){
-    denda.find(callback).limit(limit);
+    Denda.find(callback).limit(limit);
 }
 
 module.exports.getDendaById = function(id,callback,limit){
-    denda.findById(id,callback).limit(limit);
+    Denda.findById(id,callback).limit(limit);
 }
 
 module.exports.getDendaByKdDataSewa = function(id,callback,limit){
-    denda.find(id,callback).limit(limit);
+    Denda.find(id,callback).limit(limit);
 }
 
 module.exports.createDenda = function(denda,callback){
-    denda.create(denda,callback);
+    Denda.create(denda,callback);
 }
 
 module.exports.deleteDenda = function(id,callback){
-    denda.findByIdAndRemove(id,callback);
+    Denda.findByIdAndRemove(id,callback);
 }
 
 module.exports.updateDenda = function(id,denda,callback){
-    denda.findByIdAndUpdate(id,denda,callback);
+    Denda.findByIdAndUpdate(id,denda,callback);
 }
