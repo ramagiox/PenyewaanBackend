@@ -29,8 +29,8 @@ route.get('/datasewa/:_id', function (req, res) {
     });
 });
 
-route.get('/datasewa/search/:_id', function (req, res) {
-    datasewaController.getDataSewaByKdPenyewa(req.params._id, function (err, respon) {
+route.get('/datasewa/search/:UserNamePenyewa', function (req, res) {
+    datasewaController.getDataSewaByUserName(req.params.UserNamePenyewa, function (err, respon) {
         if (err) {
             throw err;
         }
@@ -38,8 +38,8 @@ route.get('/datasewa/search/:_id', function (req, res) {
     });
 });
 
-route.get('/datasewa/search2/:_id', function (req, res) {
-    datasewaController.getDataSewaByKdPenyewa2(req.params._id, function (err, respon) {
+route.get('/datasewa/search2/:UserNamePenyewa', function (req, res) {
+    datasewaController.getDataSewaByUserName2(req.params.UserNamePenyewa, function (err, respon) {
         if (err) {
             throw err;
         }
@@ -47,8 +47,8 @@ route.get('/datasewa/search2/:_id', function (req, res) {
     });
 });
 
-route.get('/datasewa/search3/:_id', function (req, res) {
-    datasewaController.getDataSewaByKdPenyewa2(req.params._id, function (err, respon) {
+route.get('/datasewa/search3/:UserNamePenyewa', function (req, res) {
+    datasewaController.getDataSewaByUserName3(req.params.UserNamePenyewa, function (err, respon) {
         if (err) {
             throw err;
         }
