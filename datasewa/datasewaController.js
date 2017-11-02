@@ -32,7 +32,7 @@ module.exports.getDataSewaByUserName = function(username,callback,limit){
 module.exports.getDataSewaByUserName2 = function(username,callback,limit){
     DataSewa.find({UserNamePenyewa : username, StatusDataSewa : "booked" },callback).limit(limit);
 }
-module.exports.getDataSewaByUserName3 = function(usernam,callback,limit){
+module.exports.getDataSewaByUserName3 = function(username,callback,limit){
     DataSewa.find({UserNamePenyewa : username, StatusDataSewa : "late" },callback).limit(limit);
 }
 
