@@ -39,7 +39,7 @@ route.get('/datasewa/search/:UserNamePenyewa', function (req, res) {
 });
 
 route.get('/datasewa/search1/:UserNamePenyewa', function (req, res) {
-    datasewaController.getDataSewaByUserName(req.params.UserNamePenyewa, function (err, respon) {
+    datasewaController.getDataSewaByUserName1(req.params.UserNamePenyewa, function (err, respon) {
         if (err) {
             throw err;
         }
