@@ -38,6 +38,15 @@ route.get('/datasewa/search/:UserNamePenyewa', function (req, res) {
     });
 });
 
+route.get('/datasewa/search1/:UserNamePenyewa', function (req, res) {
+    datasewaController.getDataSewaByUserName(req.params.UserNamePenyewa, function (err, respon) {
+        if (err) {
+            throw err;
+        }
+        res.json(respon);
+    });
+});
+
 route.get('/datasewa/search2/:UserNamePenyewa', function (req, res) {
     datasewaController.getDataSewaByUserName2(req.params.UserNamePenyewa, function (err, respon) {
         if (err) {
