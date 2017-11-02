@@ -26,14 +26,14 @@ module.exports.getDataSewaFull = function(callback){
 module.exports.getDataSewaById = function(id,callback,limit){
     DataSewa.findById(id,callback).limit(limit);
 }
-module.exports.getDataSewaByKdPenyewa = function(id,callback,limit){
-    DataSewa.find({UserName : id, StatusDataSewa : "aktif" },callback).limit(limit);
+module.exports.getDataSewaByUserName = function(username,callback,limit){
+    DataSewa.find({UserName : username, StatusDataSewa : "aktif" },callback).limit(limit);
 }
-module.exports.getDataSewaByKdPenyewa2 = function(id,callback,limit){
-    DataSewa.find({UserName : id, StatusDataSewa : "booked" },callback).limit(limit);
+module.exports.getDataSewaByUserName2 = function(username,callback,limit){
+    DataSewa.find({UserName : username, StatusDataSewa : "booked" },callback).limit(limit);
 }
-module.exports.getDataSewaByKdPenyewa3 = function(id,callback,limit){
-    DataSewa.find({UserName : id, StatusDataSewa : "late" },callback).limit(limit);
+module.exports.getDataSewaByUserName3 = function(usernam,callback,limit){
+    DataSewa.find({UserName : username, StatusDataSewa : "late" },callback).limit(limit);
 }
 
 module.exports.createDataSewa = function(datasewa,callback){
