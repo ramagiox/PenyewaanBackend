@@ -29,6 +29,11 @@ module.exports.getDataSewaById = function(id,callback,limit){
 module.exports.getDataSewaByUserName = function(username,callback,limit){
     DataSewa.find({UserNamePenyewa : username, StatusDataSewa : "aktif" },callback).limit(limit);
 }
+
+module.exports.getDataSewaByUserName1 = function(username,callback,limit){
+    DataSewa.find({UserNamePenyewa : username},callback).limit(limit);
+}
+
 module.exports.getDataSewaByUserName2 = function(username,callback,limit){
     DataSewa.find({UserNamePenyewa : username, StatusDataSewa : "booked" },callback).limit(limit);
 }
