@@ -18,7 +18,7 @@ module.exports.getBarangByKdBarang = function(kdbarang,callback){
 }
 
 module.exports.getBarangBySearch = function(nama,callback){
-    Barang.find({NamaBarang:'/.*'+nama+'.*/'},callback);
+    Barang.find({NamaBarang:/.*+nama+.*/},callback);
 }
 
 module.exports.getBarangById = function(id,callback,limit){
@@ -35,4 +35,8 @@ module.exports.deleteBarang = function(id,callback){
 
 module.exports.updateBarang = function(id,barang,callback){
     Barang.findByIdAndUpdate(id,barang,callback);
+}
+
+module.exports.getBarangByKdKategori = function(kdkategori,callback){
+    Barang.find({KdKategori:kdkategori},callback);
 }
