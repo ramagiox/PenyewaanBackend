@@ -18,7 +18,7 @@ module.exports.getBarangByKdBarang = function(kdbarang,callback){
 }
 
 module.exports.getBarangBySearch = function(nama,callback){
-    Barang.find({NamaBarang:{'$regex': nama}},callback);
+    Barang.find({NamaBarang:{'$regex': nama, '$options': 'i'}},callback);
 }
 
 module.exports.getBarangById = function(id,callback,limit){
