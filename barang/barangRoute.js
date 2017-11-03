@@ -71,4 +71,14 @@ route.put('/barang/:_id', function (req, res) {
     });
 });
 
+route.get('/barang/kdkategori/:kdkategori',function(req,res){
+	let kdkategori = req.params.kdkategori;
+    barangController.getBarangByKdKategori(kdkategori,function(err,respon){
+        if(err){
+            throw err;
+        }
+        res.json(respon);
+    });
+});
+
 module.exports = route;
