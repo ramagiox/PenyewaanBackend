@@ -2,9 +2,9 @@ let ex = require('express');
 let route = ex.Router();
 let penyewaController = require('./penyewaController.js')
 let User = require('./penyewaModel.js');
-let jwt = require('jsonwebtoken');
-let verifyToken = require('../middleware/verifyToken');
-global.config = require('../config/configJwt');
+//let jwt = require('jsonwebtoken');
+//let verifyToken = require('../middleware/verifyToken');
+//global.config = require('../config/configJwt');
 
 route.post('/login/authenticate', function(req, res){
     let data = {
