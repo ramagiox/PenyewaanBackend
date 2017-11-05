@@ -2,7 +2,7 @@ let ex = require('express');
 let route = ex.Router();
 let pegawaiController = require('./pegawaiController.js')
 
-route.post('/login/authenticate', function(req, res){
+route.post('/login/pegawai/authenticate', function(req, res){
     let data = {
         UserNamePegawai: req.body.UserNamePegawai,
         PasswordPegawai: req.body.PasswordPegawai
