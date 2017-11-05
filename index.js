@@ -29,9 +29,6 @@ app.use('/api',penyewaRoute);
 let kategoriRoute = require('./kategori/kategoriRoute.js');
 app.use('/api',kategoriRoute);
 
-let pembayaranRoute = require('./pembayaran/pembayaranRoute.js');
-app.use('/api',pembayaranRoute);
-
 
 
 let akunRoute = require('./akun/akunRoute.js');
@@ -44,6 +41,8 @@ app.use('/api',barangRoute);
 let pegawaiRoute = require('./pegawai/pegawaiRoute.js');
 app.use('/api',pegawaiRoute);
 
+let pembayaranRoute = require('./pembayaran/pembayaranRoute.js');
+app.use('/api',verifyToken,pembayaranRoute);
 
 mong.connect('mongodb://admin:admin@ds231205.mlab.com:31205/dbpenyewaan');
 
@@ -52,3 +51,5 @@ mong.connect('mongodb://admin:admin@ds231205.mlab.com:31205/dbpenyewaan');
 app.listen(process.env.PORT || 8889, function() {
   console.log('Node app is running on port', app.get('port'));
 });
+
+
