@@ -7,7 +7,8 @@ let barang = mong.Schema({
 	HargaSewa: Number,
 	StatusBarang: String,
     JumlahBarang: Number,
-    HargaDenda : Number
+    HargaDenda : Number,
+	Foto : String
 });
 
 let Barang = module.exports = mong.model("Barang", barang, "Barang");
