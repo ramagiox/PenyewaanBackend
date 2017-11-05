@@ -9,7 +9,7 @@ module.exports.getPembayaranById = function(id,callback,limit){
 }
 
 module.exports.getPembayaranByKd = function(id,callback,limit){
-    Pembayaran.findOne(id,callback).limit(limit);
+    Pembayaran.findOne({KdDataSewa : id},callback).limit(limit);
 }
 
 module.exports.createPembayaran = function(pembayaran,callback){
