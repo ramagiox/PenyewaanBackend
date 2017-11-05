@@ -37,11 +37,13 @@ app.use('/api',pembayaranRoute);
 let akunRoute = require('./akun/akunRoute.js');
 app.use('/api',akunRoute);
 
-let barangRoute = require('./barang/barangRoute.js');
-app.use('/api',barangRoute);
+
 
 let pegawaiRoute = require('./pegawai/pegawaiRoute.js');
 app.use('/api',verifyToken,pegawaiRoute);
+
+let barangRoute = require('./barang/barangRoute.js');
+app.use('/api',barangRoute);
 
 mong.connect('mongodb://admin:admin@ds231205.mlab.com:31205/dbpenyewaan');
 
