@@ -21,6 +21,16 @@ route.get('/pembayaran/:_id', function (req, res) {
     });
 });
 
+route.get('/pembayaran/kddatasewa/:_id', function (req, res) {
+    let id = req.params._id;
+    pembayaranController.getPembayaranByKd(id,function (err, respon) {
+        if (err) {
+            throw err;
+        }
+        res.json(respon);
+    });
+});
+
 route.post('/pembayaran', function (req, res) {
     let pembayaran = req.body;
     pembayaranController.createPembayaran(pembayaran, function (err, respon) {
