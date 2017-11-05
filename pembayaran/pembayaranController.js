@@ -8,6 +8,10 @@ module.exports.getPembayaranById = function(id,callback,limit){
     Pembayaran.findById(id,callback).limit(limit);
 }
 
+module.exports.getPembayaranByKd = function(id,callback,limit){
+    Pembayaran.findOne(id,callback).limit(limit);
+}
+
 module.exports.createPembayaran = function(pembayaran,callback){
     Pembayaran.create(pembayaran,callback);
 }
