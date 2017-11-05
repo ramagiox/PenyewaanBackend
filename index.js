@@ -42,7 +42,7 @@ app.use('/api',barangRoute);
 
 
 let pegawaiRoute = require('./pegawai/pegawaiRoute.js');
-app.use('/api',verifyToken,pegawaiRoute);
+app.use('/api',pegawaiRoute);
 
 
 mong.connect('mongodb://admin:admin@ds231205.mlab.com:31205/dbpenyewaan');
