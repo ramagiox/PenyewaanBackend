@@ -51,4 +51,14 @@ route.put('/kategori/:_id', function (req, res) {
     });
 });
 
+route.get('/kategori/kdkategori/:KdKategori', function (req, res) {
+    
+    kategoriController.getKategoriByKdKategori(req.params.KdKategori, function (err, respon) {
+        if (err) {
+            throw err;
+        }
+        res.json(respon);
+    });
+});
+
 module.exports = route;
