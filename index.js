@@ -24,8 +24,7 @@ app.use('/api',dendaRoute);
 let penyewaRoute = require('./penyewa/penyewaRoute.js');
 app.use('/api',penyewaRoute);
 
-let pegawaiRoute = require('./pegawai/pegawaiRoute.js');
-app.use('/api',verifyToken,pegawaiRoute);
+
 
 let kategoriRoute = require('./kategori/kategoriRoute.js');
 app.use('/api',kategoriRoute);
@@ -40,6 +39,9 @@ app.use('/api',akunRoute);
 
 let barangRoute = require('./barang/barangRoute.js');
 app.use('/api',barangRoute);
+
+let pegawaiRoute = require('./pegawai/pegawaiRoute.js');
+app.use('/api',verifyToken,pegawaiRoute);
 
 mong.connect('mongodb://admin:admin@ds231205.mlab.com:31205/dbpenyewaan');
 
