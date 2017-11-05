@@ -1,7 +1,8 @@
 let mong = require('mongoose');
 
 let pegawai = mong.Schema({
-	KdPegawai: String,
+	UserNamePegawai: String,
+	PasswordPegawai : String,
 	NamaPegawai: String,
 	AlamatPegawai: String,
 	NoTelp : String

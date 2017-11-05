@@ -21,6 +21,16 @@ route.get('/denda/:_id', function (req, res) {
     });
 });
 
+route.get('/denda/search/:_id', function (req, res) {
+    let id = req.params._id;
+    dendaController.getDendaByKdDataSewaa(id,function (err, respon) {
+        if (err) {
+            throw err;
+        }
+        res.json(respon);
+    });
+});
+
 route.post('/denda', function (req, res) {
     let denda = req.body;
     dendaController.createDenda(denda, function (err, respon) {

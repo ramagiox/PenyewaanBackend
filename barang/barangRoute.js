@@ -2,6 +2,26 @@ let ex = require('express');
 let route = ex.Router();
 let barangController = require('./barangController.js')
 
+route.get('/search/:nama',function(req,res){
+	let nama = req.params.nama;
+    barangController.getBarangBySearch(nama,function(err,respon){
+        if(err){
+            throw err;
+        }
+        res.json(respon);
+    });
+});
+
+route.get('/kdbarang/:kdbarang',function(req,res){
+	let kdbarang = req.params.kdbarang;
+    barangController.getBarangByKdBarang(kdbarang,function(err,respon){
+        if(err){
+            throw err;
+        }
+        res.json(respon);
+    });
+});
+
 route.get('/barang', function (req, res) {
     barangController.getBarang(function (err, respon) {
         if (err) {
@@ -45,6 +65,16 @@ route.put('/barang/:_id', function (req, res) {
     let barang = req.body;
     barangController.updateBarang(req.params._id,barang, function (err, respon) {
         if (err) {
+            throw err;
+        }
+        res.json(respon);
+    });
+});
+
+route.get('/barang/kdkategori/:kdkategori',function(req,res){
+	let kdkategori = req.params.kdkategori;
+    barangController.getBarangByKdKategori(kdkategori,function(err,respon){
+        if(err){
             throw err;
         }
         res.json(respon);

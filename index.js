@@ -1,6 +1,9 @@
 let bodyParser = require('body-parser');
 let mong = require('mongoose');
 let ex = require('express');
+let jwt = require('jsonwebtoken');
+global.config = require('./config/configJwt');
+let verifyToken = require('./middleware/verifyToken');
 let app = ex();
 //route
 app.use(bodyParser.json());
@@ -11,14 +14,18 @@ app.use('/', function (req, res, next) {
     next();
 })
 
+
 let datasewaRoute = require('./datasewa/datasewaRoute.js');
 app.use('/api',datasewaRoute);
 
 let dendaRoute = require('./denda/dendaRoute.js');
 app.use('/api',dendaRoute);
 
+let penyewaRoute = require('./penyewa/penyewaRoute.js');
+app.use('/api',penyewaRoute);
+
 let pegawaiRoute = require('./pegawai/pegawaiRoute.js');
-app.use('/api',pegawaiRoute);
+app.use('/api',verifyToken,pegawaiRoute);
 
 let kategoriRoute = require('./kategori/kategoriRoute.js');
 app.use('/api',kategoriRoute);
@@ -26,8 +33,7 @@ app.use('/api',kategoriRoute);
 let pembayaranRoute = require('./pembayaran/pembayaranRoute.js');
 app.use('/api',pembayaranRoute);
 
-let penyewaRoute = require('./penyewa/penyewaRoute.js');
-app.use('/api',penyewaRoute);
+
 
 let akunRoute = require('./akun/akunRoute.js');
 app.use('/api',akunRoute);

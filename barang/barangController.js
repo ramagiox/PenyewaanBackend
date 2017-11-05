@@ -1,7 +1,24 @@
 Barang = require('./barangModel.js');
 
-module.exports.getBarang = function(callback,limit){
-    Barang.find(callback).limit(limit);
+module.exports.getBarang = function(callback){
+    Barang.aggregate([{
+        "$lookup":{
+         from:"Kategori",
+         localField:"KdKategori",
+         foreignField:"KdKategori",
+         as:"KategoriInfo"
+     }}, 
+         {"$unwind":"$KategoriInfo"
+     }
+     ],callback)
+}
+
+module.exports.getBarangByKdBarang = function(kdbarang,callback){
+    Barang.find({KdBarang:kdbarang},callback);
+}
+
+module.exports.getBarangBySearch = function(nama,callback){
+    Barang.find({NamaBarang:{'$regex': nama, '$options': 'i'}},callback);
 }
 
 module.exports.getBarangById = function(id,callback,limit){
@@ -18,4 +35,8 @@ module.exports.deleteBarang = function(id,callback){
 
 module.exports.updateBarang = function(id,barang,callback){
     Barang.findByIdAndUpdate(id,barang,callback);
+}
+
+module.exports.getBarangByKdKategori = function(kdkategori,callback){
+    Barang.find({KdKategori:kdkategori},callback);
 }

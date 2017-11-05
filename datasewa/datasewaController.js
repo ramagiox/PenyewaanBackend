@@ -4,8 +4,41 @@ module.exports.getDataSewa = function(callback,limit){
     DataSewa.find(callback).limit(limit);
 }
 
+module.exports.getDataSewaFull = function(callback){
+    DataSewa.aggregate([
+    {"$lookup":{
+         from:"Pegawai",
+         localField:"UserNamePegawai",
+         foreignField:"UserNamePegawai",
+         as:"PegawaiInfo"
+     }},
+        {"$unwind":"$PegawaiInfo"},
+     {"$lookup":{
+         from:"Penyewa",
+         localField:"UserNamePenyewa",
+         foreignField:"UserNamePenyewa",
+         as:"PenyewaInfo"
+     }}, 
+        {"$unwind":"$PenyewaInfo"}
+     ],callback)
+}
+
 module.exports.getDataSewaById = function(id,callback,limit){
     DataSewa.findById(id,callback).limit(limit);
+}
+module.exports.getDataSewaByUserName = function(username,callback,limit){
+    DataSewa.find({UserNamePenyewa : username, StatusDataSewa : "aktif" },callback).limit(limit);
+}
+
+module.exports.getDataSewaByUserName1 = function(username,callback,limit){
+    DataSewa.find({UserNamePenyewa : username},callback).limit(limit);
+}
+
+module.exports.getDataSewaByUserName2 = function(username,callback,limit){
+    DataSewa.find({UserNamePenyewa : username, StatusDataSewa : "booked" },callback).limit(limit);
+}
+module.exports.getDataSewaByUserName3 = function(username,callback,limit){
+    DataSewa.find({UserNamePenyewa : username, StatusDataSewa : "late" },callback).limit(limit);
 }
 
 module.exports.createDataSewa = function(datasewa,callback){

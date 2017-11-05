@@ -11,20 +11,20 @@ route.get('/pegawai', function (req, res) {
     });
 });
 
-route.get('/pegawai/:_id', function (req, res) {
-    let id = req.params._id;
-    pegawaiController.getPegawaiById(id,function (err, respon) {
-        if (err) {
+route.get('/username/:username',function(req,res){
+	let username = req.params.username;
+    pegawaiController.getPegawaiByUserNamePegawai(username,function(err,respon){
+        if(err){
             throw err;
         }
         res.json(respon);
     });
 });
 
-route.get('/username/:username',function(req,res){
-	let username = req.params.username;
-    pegawaiController.getPegawaiByUserNamePegawai(username,function(err,respon){
-        if(err){
+route.get('/pegawai/:_id', function (req, res) {
+    let id = req.params._id;
+    pegawaiController.getPegawaiById(id,function (err, respon) {
+        if (err) {
             throw err;
         }
         res.json(respon);

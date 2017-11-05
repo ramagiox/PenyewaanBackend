@@ -1,6 +1,9 @@
 let ex = require('express');
 let route = ex.Router();
-let akunController = require('./akunController.js')
+let akunController = require('./akunController.js');
+let User = require('./akunModel');
+
+
 
 route.get('/akun', function (req, res) {
     akunController.getAkun(function (err, respon) {
