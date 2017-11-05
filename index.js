@@ -15,11 +15,7 @@ app.use('/', function (req, res, next) {
 })
 
 
-let datasewaRoute = require('./datasewa/datasewaRoute.js');
-app.use('/api',datasewaRoute);
 
-let dendaRoute = require('./denda/dendaRoute.js');
-app.use('/api',dendaRoute);
 
 let penyewaRoute = require('./penyewa/penyewaRoute.js');
 app.use('/api',penyewaRoute);
@@ -43,6 +39,12 @@ app.use('/api',pegawaiRoute);
 
 let pembayaranRoute = require('./pembayaran/pembayaranRoute.js');
 app.use('/api',verifyToken,pembayaranRoute);
+
+let datasewaRoute = require('./datasewa/datasewaRoute.js');
+app.use('/api',datasewaRoute);
+
+let dendaRoute = require('./denda/dendaRoute.js');
+app.use('/api',dendaRoute);
 
 mong.connect('mongodb://admin:admin@ds231205.mlab.com:31205/dbpenyewaan');
 
