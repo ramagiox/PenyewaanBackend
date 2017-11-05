@@ -20,12 +20,12 @@ route.post('/login/authenticate', function(req, res){
         }
         console.log(user);
         
-         let token = jwt.sign(user, global.config.jwt_secret, {
-             expiresIn: 1440 // expires in 1 hour
-         });
-        console.log(token);
+         //let token = jwt.sign(user, global.config.jwt_secret, {
+             //expiresIn: 1440 // expires in 1 hour
+         //});
+       // console.log(token);
         
-        res.json(token);
+        res.json(user.UserNamePenyewa);
     });
 });
 
