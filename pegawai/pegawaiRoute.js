@@ -1,6 +1,10 @@
 let ex = require('express');
 let route = ex.Router();
 let pegawaiController = require('./pegawaiController.js')
+let jwt = require('jsonwebtoken');
+let verifyToken = require('../middleware/verifyToken');
+let User = require('./pegawaiModel');
+global.config = require('../config/configJwt');
 
 route.post('/login/pegawai/authenticate', function(req, res){
     let data = {
