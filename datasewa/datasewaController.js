@@ -6,13 +6,7 @@ module.exports.getDataSewa = function(callback,limit){
 
 module.exports.getDataSewaFull = function(callback){
     DataSewa.aggregate([
-    {"$lookup":{
-         from:"Pegawai",
-         localField:"UserNamePegawai",
-         foreignField:"UserNamePegawai",
-         as:"PegawaiInfo"
-     }},
-        {"$unwind":"$PegawaiInfo"},
+    
      {"$lookup":{
          from:"Penyewa",
          localField:"UserNamePenyewa",
