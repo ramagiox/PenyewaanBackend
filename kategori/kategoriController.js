@@ -19,3 +19,8 @@ module.exports.deleteKategori = function(id,callback){
 module.exports.updateKategori = function(id,kategori,callback){
     Kategori.findByIdAndUpdate(id,kategori,callback);
 }
+
+
+module.exports.getKategoriByKdKategori = function(kdkategori,callback,limit){
+    Kategori.find({KdKategori:kdkategori},callback).limit(limit);
+}
