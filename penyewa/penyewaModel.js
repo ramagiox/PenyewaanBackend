@@ -7,7 +7,8 @@ let penyewa = mong.Schema({
 	EmailPenyewa: String,
 	AlamatPenyewa: String,
 	NoTelp: String,
-	TglLahir : Date
+	TglLahir : Date,
+	Umur : Number
 });
 
 let Penyewa = module.exports = mong.model("Penyewa", penyewa, "Penyewa");
